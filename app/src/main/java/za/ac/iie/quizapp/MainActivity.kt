@@ -16,6 +16,8 @@ import za.ac.iie.quizapp.ui.theme.QuizAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
         enableEdgeToEdge()
         setContent {
             QuizAppTheme {
