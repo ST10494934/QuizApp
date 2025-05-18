@@ -1,5 +1,6 @@
 package za.ac.iie.quizapp
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -15,20 +16,37 @@ class ResultActivity : AppCompatActivity() {
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Hide the status bar
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
-        // Get the name and score data from intent
-        val userName = intent.getStringExtra(Constants.USER_NAME)
-        val totalQuestions = intent.getIntExtra(Constants.TOTAL_QUESTIONS, 0)
-        val correctAnswers = intent.getIntExtra(Constants.CORRECT_ANSWERS, 0)
+        val userName = intent.getStringExtra("USER_NAME")
+        val score = intent.getIntExtra("SCORE", 0)
+        val questions = intent.getStringArrayExtra("QUESTIONS") ?: arrayOf()
+        val answers = intent.getBooleanArrayExtra("ANSWERS") ?: booleanArrayOf()
 
-        // Set the data in the views
+        val feedback = if (score >= 3) "Great job!" else "Keep practicing!"
+
         binding.tvName.text = userName
-        binding.tvScore.text = "Your Score is $correctAnswers out of $totalQuestions."
+        binding.tvScore.text = "Your Score is $score out of ${questions.size}.\n$feedback"
+
         binding.btnFinish.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
+        }
+
+        binding.btnReview.setOnClickListener {
+            val reviewText = questions.indices.joinToString("\n\n") {
+                "${questions[it]}\nAnswer: ${if (answers[it]) "True" else "False"}"
+            }
+
+            AlertDialog.Builder(this)
+                .setTitle("Review")
+                .setMessage(reviewText)
+                .setPositiveButton("OK", null)
+                .show()
+        }
+
+        binding.btnExit.setOnClickListener {
+            finishAffinity()
         }
     }
 }

@@ -12,6 +12,7 @@
 
         <activity
             android:name="za.ac.iie.quizapp.MainActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme"
             android:windowSoftInputMode="adjustResize">
@@ -32,4 +33,3 @@
 
     </application>
 
-</manifest>

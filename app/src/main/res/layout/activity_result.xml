@@ -10,60 +10,77 @@
     android:padding="20dp"
     tools:context=".ResultActivity">
 
-  <TextView
-      android:id="@+id/tv_result"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="25dp"
-      android:text="Result"
-      android:textColor="@android:color/white"
-      android:textSize="25sp"
-      android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Result"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
-  <ImageView
-      android:id="@+id/iv_trophy"
-      android:layout_width="wrap_content"
-      android:layout_height="421dp"
-      android:contentDescription="Trophy"
-      android:src="@drawable/ic_trophy" />
+    <ImageView
+        android:id="@+id/iv_trophy"
+        android:layout_width="wrap_content"
+        android:layout_height="309dp"
+        android:contentDescription="Trophy"
+        android:src="@drawable/ic_trophy" />
 
-  <TextView
-      android:id="@+id/tv_congratulations"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="16dp"
-      android:text="End of Quiz!"
-      android:textColor="@android:color/white"
-      android:textSize="25sp"
-      android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tv_congratulations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="End of Quiz!"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
 
-  <TextView
-      android:id="@+id/tv_name"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="25dp"
-      android:textColor="@android:color/white"
-      android:textSize="22sp"
-      android:textStyle="bold"
-      tools:text="Username" />
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:text="Username" />
 
-  <TextView
-      android:id="@+id/tv_score"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="10dp"
-      android:textColor="@android:color/secondary_text_dark"
-      android:textSize="20sp"
-      tools:text="Your Score is 3 out of 5"/>
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textSize="20sp"
+        tools:text="Your Score is 3 out of 5"/>
 
-  <Button
-      android:id="@+id/btn_finish"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="10dp"
-      android:background="@android:color/white"
-      android:text="FINISH"
-      android:textColor="@color/purple_500"
-      android:textSize="18sp"
-      android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btn_finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/white"
+        android:text="FINISH"
+        android:textColor="@color/purple_500"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/btn_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="REVIEW" />
+
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="EXIT" />
+
+
+
 </LinearLayout>
