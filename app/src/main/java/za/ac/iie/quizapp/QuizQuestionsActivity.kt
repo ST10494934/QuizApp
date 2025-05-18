@@ -8,53 +8,38 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import kotlinx.android.synthetic.main.activity_quiz_questions.*
+import za.ac.iie.quizapp.databinding.ActivityQuizQuestionsBinding
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
+    private lateinit var binding: ActivityQuizQuestionsBinding
+
     private var mCurrentPosition: Int = 1
     private var mQuestionsList: ArrayList<Question>? = null
+
     private var mSelectedOptionPosition: Int = 0
     private var mCorrectAnswers: Int = 0
     private var mUserName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityQuizQuestionsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-
-        enableEdgeToEdge()
-
-        // Set your XML layout
-        setContentView(R.layout.activity_quiz_questions)
-
-        // Optional: Applies padding for system bars (if your layout has a root view with id 'main')
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        // Get user's name
         mUserName = intent.getStringExtra(Constants.USER_NAME)
-
-        // Load questions
         mQuestionsList = Constants.getQuestions()
 
-        // Display first question
         setQuestion()
 
-        // Set up option click listeners
-        tv_option_one.setOnClickListener(this)
-        tv_option_two.setOnClickListener(this)
-        btn_submit.setOnClickListener(this)
+        binding.tvOptionOne.setOnClickListener(this)
+        binding.tvOptionTwo.setOnClickListener(this)
+        binding.btnSubmit.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.tv_option_one -> selectedOptionView(tv_option_one, 1)
-            R.id.tv_option_two -> selectedOptionView(tv_option_two, 2)
+            R.id.tv_option_one -> selectedOptionView(binding.tvOptionOne, 1)
+            R.id.tv_option_two -> selectedOptionView(binding.tvOptionTwo, 2)
             R.id.btn_submit -> {
                 if (mSelectedOptionPosition == 0) {
                     mCurrentPosition++
@@ -77,7 +62,10 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     }
                     answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
 
-                    btn_submit.text = if (mCurrentPosition == mQuestionsList!!.size) "FINISH" else "GO TO NEXT QUESTION"
+                    binding.btnSubmit.text =
+                        if (mCurrentPosition == mQuestionsList!!.size) "FINISH"
+                        else "GO TO NEXT QUESTION"
+
                     mSelectedOptionPosition = 0
                 }
             }
@@ -88,19 +76,18 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         val question = mQuestionsList!![mCurrentPosition - 1]
         defaultOptionsView()
 
-        btn_submit.text = if (mCurrentPosition == mQuestionsList!!.size) "FINISH" else "SUBMIT"
+        binding.btnSubmit.text = if (mCurrentPosition == mQuestionsList!!.size) "FINISH" else "SUBMIT"
+        binding.progressBar.progress = mCurrentPosition
+        binding.tvProgress.text = "$mCurrentPosition/${binding.progressBar.max}"
 
-        progressBar.progress = mCurrentPosition
-        tv_progress.text = "$mCurrentPosition/${progressBar.max}"
-
-        tv_question.text = question.question
-        iv_image.setImageResource(question.image)
-        tv_option_one.text = question.optionOne
-        tv_option_two.text = question.optionTwo
+        binding.tvQuestion.text = question.question
+        binding.ivImage.setImageResource(question.image)
+        binding.tvOptionOne.text = "True"
+        binding.tvOptionTwo.text = "False"
     }
 
     private fun defaultOptionsView() {
-        val options = arrayListOf(tv_option_one, tv_option_two)
+        val options = arrayListOf(binding.tvOptionOne, binding.tvOptionTwo)
         for (option in options) {
             option.setTextColor(Color.parseColor("#7A8089"))
             option.typeface = Typeface.DEFAULT
@@ -118,8 +105,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun answerView(answer: Int, drawableView: Int) {
         when (answer) {
-            1 -> tv_option_one.background = ContextCompat.getDrawable(this, drawableView)
-            2 -> tv_option_two.background = ContextCompat.getDrawable(this, drawableView)
+            1 -> binding.tvOptionOne.background = ContextCompat.getDrawable(this, drawableView)
+            2 -> binding.tvOptionTwo.background = ContextCompat.getDrawable(this, drawableView)
         }
     }
 }
