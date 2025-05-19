@@ -23,7 +23,7 @@
             android:gravity="center"
             android:textColor="#363A43"
             android:textSize="22sp"
-            tools:text="True or False: South Africa was colonised in the 17th century." />
+            android:text="True or False: South Africa was colonised in the 17th century." />
 
         <!-- Image for question -->
         <ImageView
@@ -32,7 +32,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:contentDescription="Question Image"
-            tools:src="@drawable/europeans" />
+            android:adjustViewBounds="true"
+            android:maxHeight="400dp"
+            android:src="@drawable/europeans" />
 
         <!-- Progress bar and label -->
         <LinearLayout
@@ -60,9 +62,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="15dp"
-                android:textColorHint="#7A8089"
-                android:textSize="14sp"
-                tools:text="1/5" />
+                android:text="1/5"
+                android:textColor="#7A8089"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <!-- Option one -->
@@ -74,9 +76,9 @@
             android:background="@drawable/default_option_border_bg"
             android:gravity="center"
             android:padding="15dp"
-            android:textColor="#7A8089"
-            android:textSize="18sp"
-            tools:text="True" />
+            android:text="True"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <!-- Option two -->
         <TextView
@@ -87,9 +89,9 @@
             android:background="@drawable/default_option_border_bg"
             android:gravity="center"
             android:padding="15dp"
-            android:textColor="#7A8089"
-            android:textSize="18sp"
-            tools:text="False" />
+            android:text="False"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <!-- Submit button -->
         <Button
@@ -108,17 +110,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textColor="#000000"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp" />
 
+        <!-- Next button -->
         <Button
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Next"
-            android:layout_marginTop="16dp"/>
-
-
+            android:layout_marginTop="16dp" />
     </LinearLayout>
 </ScrollView>
