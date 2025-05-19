@@ -14,7 +14,7 @@ object Constants {
 
         // 1
         val que1 = Question(
-            1, "True or False: South Africa was settled by Europeans in the 17th century.",
+            1, "True/False: South Africa was settled by Europeans in the 17th century.",
             R.drawable.europeans,
             "True", "False", 1
         )
@@ -22,7 +22,7 @@ object Constants {
 
         // 2
         val que2 = Question(
-            2, "True or False: Nelson Mandela became president in 1994.",
+            2, "True/False: Nelson Mandela became president in 1994.",
             R.drawable.nelson_mandela_president,
             "True", "False", 1
         )
@@ -30,7 +30,7 @@ object Constants {
 
         // 3
         val que3 = Question(
-            3, "True or False: The first European settlers in South Africa were British.",
+            3, "True/False: The first European settlers in South Africa were British.",
             R.drawable.first_settlers,
             "True", "False", 2
         )
@@ -46,7 +46,7 @@ object Constants {
 
         // 5
         val que5 = Question(
-            5, "The gold rush in South Africa occurred primarily in Durban.",
+            5, "True/False: The gold rush in South Africa occurred primarily in Durban.",
             R.drawable.kimberley,
             "True", "False", 2
         )
