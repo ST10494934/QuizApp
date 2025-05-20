@@ -79,32 +79,33 @@ Figure 3:Question 2
  ![image](https://github.com/user-attachments/assets/bd82393d-7c79-4d66-8a17-b5b0f4894676)
 
 Figure 4: Question 3
+
 ![image](https://github.com/user-attachments/assets/e2abc5a7-6b82-4c03-8c87-449049b6cfa7)
 
- 
 Figure 5:Question 4
 
- ![image](https://github.com/user-attachments/assets/237a7f71-ef52-4be1-9a69-0f3bfd59d357)
+![image](https://github.com/user-attachments/assets/237a7f71-ef52-4be1-9a69-0f3bfd59d357)
 
 Figure 6:Question 5
- ![image](https://github.com/user-attachments/assets/71fd37eb-9596-4f40-a7bf-6fc8c855e093)
+
+![image](https://github.com/user-attachments/assets/71fd37eb-9596-4f40-a7bf-6fc8c855e093)
 
 Figure 7:Result Page (if greater than 3) 
 
 ![image](https://github.com/user-attachments/assets/6aa565a5-5ea3-4621-a495-06e44424b930)
 
 Figure 8: Result page (if less than 3)
+
 ![image](https://github.com/user-attachments/assets/f12645bd-487e-452d-a966-0832f84ce826)
 
- 
 Figure 9: Result of the Review button
 
- ![image](https://github.com/user-attachments/assets/ddb163b1-35fc-4bc3-8533-65fad5db8827)
+![image](https://github.com/user-attachments/assets/ddb163b1-35fc-4bc3-8533-65fad5db8827)
 
 Figure 10:Result of Finish Button
 
 Video Demonstration: 
-https://youtu.be/4_YE2FsWyww 
+https://youtu.be/4_YE2FsWyww  
  
 Bibliography 
 
