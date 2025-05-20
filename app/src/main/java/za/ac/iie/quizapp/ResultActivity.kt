@@ -18,11 +18,11 @@ class ResultActivity : AppCompatActivity() {
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
-        val userName = intent.getStringExtra(Constants.USER_NAME)
-        val score = intent.getIntExtra(Constants.CORRECT_ANSWERS, 0)
-        val totalQuestions = intent.getIntExtra(Constants.TOTAL_QUESTIONS, 5)
+        val userName = intent.getStringExtra(Constants.USER_NAME) //Gets the users name from start page
+        val score = intent.getIntExtra(Constants.CORRECT_ANSWERS, 0) //Collects the questions that the user got correct
+        val totalQuestions = intent.getIntExtra(Constants.TOTAL_QUESTIONS, 5) //Scores the user out of 5
 
-        val feedback = if (score >= 3) "Great job!" else "Keep practicing!"
+        val feedback = if (score >= 3) "Great job!" else "Keep practicing!" //Personalised feedback based on result
 
         binding.tvName.text = userName
         binding.tvScore.text = "Your Score is $score out of $totalQuestions.\n$feedback"

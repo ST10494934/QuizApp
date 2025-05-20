@@ -14,6 +14,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var currentPosition = 0
     private var selectedOption = 0
     private var score = 0
+    private var isAnswerSubmitted = false
     private lateinit var userName: String
     private lateinit var questionsList: ArrayList<Question>
 
@@ -41,17 +42,19 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             val question = questionsList[currentPosition]
+            isAnswerSubmitted = true
+
             if (selectedOption == question.correctAnswer) {
                 binding.tvFeedback.apply {
-                    text = "Correct!"
-                    setTextColor(ContextCompat.getColor(this@QuizQuestionsActivity, android.R.color.holo_green_dark))
+                    text = "Correct!" //Result if the user answers correctly
+                    setTextColor(ContextCompat.getColor(this@QuizQuestionsActivity, android.R.color.holo_green_dark)) //The result text will be displayed in green
                     setTypeface(null, Typeface.BOLD)
                 }
                 score++
             } else {
                 binding.tvFeedback.apply {
-                    text = "Incorrect!"
-                    setTextColor(ContextCompat.getColor(this@QuizQuestionsActivity, android.R.color.holo_red_dark))
+                    text = "Incorrect!" //Result if the user answers incorrectly
+                    setTextColor(ContextCompat.getColor(this@QuizQuestionsActivity, android.R.color.holo_red_dark))// The result will be displayed in red
                     setTypeface(null, Typeface.BOLD)
                 }
             }
@@ -82,9 +85,10 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         binding.tvOptionOne.text = question.optionOne
         binding.tvOptionTwo.text = question.optionTwo
         binding.progressBar.progress = currentPosition + 1
-        binding.tvProgress.text = "${currentPosition + 1}/${questionsList.size}"
+        binding.tvProgress.text = "${currentPosition + 1}/${questionsList.size}" //Progress bar (used to calculate how far the user is with their questions)
 
         selectedOption = 0
+        isAnswerSubmitted = false
         defaultOptions()
 
         binding.tvFeedback.apply {
@@ -105,6 +109,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+        if (isAnswerSubmitted) return  // prevent option change after submitting
+
         defaultOptions()
         when (v?.id) {
             R.id.tv_option_one -> {
